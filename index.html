@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The One Armed Bandit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVIGATION with login form-->
+  <nav>
+    <span id="welcome">Wanna play? Log in to your account</span>
+    <img src="logo.png" alt="" class="logo">
+    <form action="#" class="login">
+      <input type="email" class="login_input" placeholder="Email" id="email_input">
+      <input type="password" class="login_input" placeholder="Password" id="password_input"><br>
+      <button class="loginBtn">Login</button>
+    </form>
+  </nav>
+
+  <main class="app">
+    <h1>The One Armed Bandit</h1>
+
+    <section class="game">
+      <div class="color"></div>
+      <div class="color"></div>
+      <div class="color"></div>
+    </section>
+
+    <section class="play">
+      <input type="number" placeholder="Input amount" id="bid">
+      <button id="start">Roll!</button>
+    </section>
+
+    <section class="panel">Your funds before the next game: <span class="wallet"></span></section>
+
+    <section class="score">
+      <span class="result"></span> You have played <span class="number"></span> games, with <span class="win"></span> wins
+      and <span class="loss"></span> loses
+    </section>
+
+  </main>
+  <script src="game.js"></script>
+</body>
+
+</html>
