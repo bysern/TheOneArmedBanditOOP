@@ -144,6 +144,7 @@ h1 {
 .panel,
 .score {
     font-size: 26px;
+    margin-bottom: 50px;
 }
 
 .panel span,
