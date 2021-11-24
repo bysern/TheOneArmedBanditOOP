@@ -10,8 +10,11 @@ class Game {
         this.spanGames = document.querySelector('.score span.number');
         this.spanWins = document.querySelector('.score span.win');
         this.spanLosses = document.querySelector('.score span.loss');
+        this.labelTimer = document.querySelector('.timer');
 
         this.render();
+        this.startTimer();
+
     }
 
     //default amount is current wallet value
@@ -56,6 +59,28 @@ class Game {
 
         this.render(colors, this.wallet.getCurrentWalletValue(), win,
         this.stats.showGameStatistics(), bid, wonMoney);
+
+
+    }
+
+    startTimer(){
+        let timer = 0;
+        setInterval(function(){
+            let minutes = parseInt(timer / 60, 10);
+            let seconds = parseInt(timer % 60, 10);
+    
+            //ading 0 when single digit
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            
+            console.log(document.getElementById('timer'));
+            document.getElementById('timer').textContent = minutes + ":" + seconds;
+    
+            if(++timer >= 300) {
+                alert('You have played for 5 minutes already'); 
+            }
+
+        }, 1000);
     }
 }
 
