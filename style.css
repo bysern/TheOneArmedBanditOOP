@@ -152,6 +152,63 @@ h1 {
     font-weight: bold;
 }
 
+.addingMoneyOperationWrapper {
+    opacity: 0;
+    text-align: center;
+    border: 3px solid red;
+    padding: 20px 0;
+    background-color: #ffffff;
+    width: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.addMoneyOrLogout {
+    opacity: 0;
+}
+
+.addMoneyChosenWrap {
+    opacity: 0;
+}
+
+.optionsBtn {
+    border: none;
+    width: 150px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin: 5px;
+    text-transform: uppercase;
+    background-color: #333;
+    color: white;
+    border-radius: 10%;
+    padding: 7px;
+    border: 2px solid #333;
+    transition: 0.2s;
+}
+
+.optionsBtn:hover {
+    color: #333;
+    background-color: white;
+    border: 2px solid #333;
+}
+
+.addMoneyOrLogout h2 {
+    margin: 5px;
+    font-size: 35px;
+
+}
+
+#addMoneyInput {
+    height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100px;
+    border: 1px solid black;
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .wrap {
         width: 90%;

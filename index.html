@@ -45,9 +45,28 @@
        You have played <span class="number"></span> games, with <span class="win"></span> wins
       and <span class="loss"></span> loses
     </section>
+
+    <!-- Add money operation if you ran out of money -->
+    <section class="depositMoney">
+      <div class="addingMoneyOperationWrapper">
+            <div class="addMoneyOrLogout">
+              <h2>Wanna continue?</h2>
+              <p>Add money or log out</p>
+              <button id="addMoneyChose" class="optionsBtn">Add money</button>
+              <button id="logOut" class="optionsBtn">Log out</button>
+            </div>
+            <div class="addMoneyChosenWrap">
+              <input type="number" id="addMoneyInput" class="addMoneyOption">
+              <label class="addMoneyOption">amount</label>
+              <button id="addDeposit" class="optionsBtn">Deposit</button>
+            </div>
+          </div>
+    </section>
     <p class="time-played">
       Time played in current session <span id="timer">00:00</span>
     </p>
+
+ 
 
   </main>
   <script src="classes/Wallet.js"></script>

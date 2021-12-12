@@ -23,6 +23,9 @@ const inputLoginEmail = document.getElementById('email_input');
 const inputLoginPassword = document.getElementById("password_input");
 const btnLogin = document.querySelector('.loginBtn');
 const containerApp = document.querySelector('.app');
+const containerAddMoneyChosen = document.querySelector('.addMoneyChosenWrap');
+const containerMoneyDepositWrapper = document.querySelector('.addingMoneyOperationWrapper')
+const inputDepositAmount = document.getElementById('addMoneyInput');
 
 function getCurrentUserWalletAmount(acc){
     return acc.walletAmount;
@@ -43,6 +46,6 @@ btnLogin.addEventListener('click', function(e){
 
     //clear inputs
     inputLoginEmail.value = inputLoginPassword.value = '';
-    }
+    }else alert('Wrong email or password.');
 })
 

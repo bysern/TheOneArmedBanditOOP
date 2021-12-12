@@ -3,6 +3,8 @@ class Game {
         this.stats = new Statstics();
         this.wallet = new Wallet(start);
         document.getElementById('start').addEventListener('click', this.startGame.bind(this));
+        document.getElementById('addMoneyChose').addEventListener('click', this.addingMoney.bind(this));
+
         this.spanWallet = document.querySelector('.panel span.wallet');
         this.boards = [...document.querySelectorAll('div.color')];
         this.inputBid = document.getElementById('bid');
@@ -10,7 +12,14 @@ class Game {
         this.spanGames = document.querySelector('.score span.number');
         this.spanWins = document.querySelector('.score span.win');
         this.spanLosses = document.querySelector('.score span.loss');
-        this.labelTimer = document.querySelector('.timer');
+
+        this.depositWrapper = document.querySelector('.addingMoneyOperationWrapper');
+        this.divAddMoneyOrLogout = document.querySelector('.addMoneyOrLogout');
+        this.divAddMoneyChosen = document.querySelector('.addMoneyChosenWrap');
+        this.btnLogOut = document.getElementById('logOut');
+        this.btnAddMoneyChosen = document.getElementById('addMoneyChose');
+        this.btnDeposit = document.getElementById('addDeposit');
+        //this.inputDepositAmount = document.getElementById('addMoneyInput');
 
         this.render();
         this.startTimer();
@@ -44,9 +53,13 @@ class Game {
         if(this.inputBid.value < 1 ) return alert('The amount is too small.');
         const bid = Math.floor(this.inputBid.value);
 
+        this.wallet.getCurrentWalletValue();
+
         if(!this.wallet.checkIfUserCanPlay(bid)){
-            return alert('You have too little funds or wrong input');
+            this.addingMoney();
+            return alert('You have too little funds or wrong input. Dont worry you can still continue!');
         }
+            
 
         this.wallet.changeWallet(bid, '-');
 
@@ -63,6 +76,30 @@ class Game {
 
     }
 
+    addingMoney(){
+        this.divAddMoneyOrLogout.style.opacity = 1;
+        this.depositWrapper.style.opacity = 1;
+        this.btnLogOut.addEventListener('click', function(){
+            containerApp.style.opacity=0;
+        });
+
+        this.btnAddMoneyChosen.addEventListener('click', function(){
+            containerAddMoneyChosen.style.opacity=1;
+        });
+        this.btnDeposit.addEventListener('click', function(e){
+            e.preventDefault();
+            let amount = Number(inputDepositAmount.value);
+            if(amount > 0){
+                console.log(this);
+                console.log(this.wallet);
+                //this.wallet.getCurrentWalletValue() + amount;
+                this.wallet.changeWallet(amount);
+                containerMoneyDepositWrapper.style.opacity = 0;
+                alert('Money added succesfully!');
+            }
+        });
+    }
+
     startTimer(){
         let timer = 0;
         setInterval(function(){
@@ -72,11 +109,10 @@ class Game {
             //ading 0 when single digit
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
-            
-            console.log(document.getElementById('timer'));
+
             document.getElementById('timer').textContent = minutes + ":" + seconds;
     
-            if(++timer >= 300) {
+            if(++timer == 300) {
                 alert('You have played for 5 minutes already'); 
             }
 
